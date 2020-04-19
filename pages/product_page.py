@@ -7,7 +7,7 @@ import time
 
 
 
-class ProductPage(BasePage):
+class PromoOffer(BasePage):
     
     def should_be_buy(self, browser):
         self.product_should_be_in_stock()
@@ -35,6 +35,22 @@ class ProductPage(BasePage):
         product_price_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_BASKET)
         assert product_price.text == product_price_in_basket.text, "Price of the product is not the same"
 
+class ProductPage(BasePage):
 
+    def should_not_be_success_message_after_buy(self):
+        link = self.browser.find_element(*ProductPageLocators.PRODUCT_PAGE)
+        link.click()
+        assert not self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE),\
+        "Success message is presented"
+
+    def should_not_be_success_message(self):
+        assert not self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGE),\
+        "Success message is not presented"    
+    
+    def should_disappeared_success_message(self):
+        link = self.browser.find_element(*ProductPageLocators.PRODUCT_PAGE)
+        link.click()
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+        "Success message is presented, but should not be"
 
     
