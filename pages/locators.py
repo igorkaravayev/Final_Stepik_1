@@ -15,7 +15,9 @@ class ProductPageLocators():
     PRODUCT_PRICE_IN_BASKET = (By.CSS_SELECTOR, ".alertinner  p strong")
     PRODUCT_PRICE = (By.CSS_SELECTOR, ".product_main p.price_color")
 
-
+class BasketPageLocators():
+    SUCCESS_MESSAGE = (By.CSS_SELECTOR, ".fade .alertinner")
+    PRODUCT_PAGE = (By.CSS_SELECTOR, ".btn-add-to-basket")
 
 
     
