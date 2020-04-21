@@ -59,7 +59,7 @@ def test_guest_can_add_product_to_basket(browser, promo_offer):
     page.should_be_product_name_same() # Check that name in basket and bought product is the same 
     page.should_be_product_price_same() # Check that price in basket and bought product is the same
 
-@pytest.mark.need_review
+
 class TestUserAddToBasketFromProductPage():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
@@ -81,6 +81,7 @@ class TestUserAddToBasketFromProductPage():
         page.open()
         page.should_not_be_success_message() # Check that user can't see success message of bought product before buy
 
+    @pytest.mark.need_review
     @pytest.mark.parametrize('promo_offer', ["0", "1", "2", "3", "4", "5", "6", pytest.param("7", marks=pytest.mark.xfail), "8", "9"])
     def test_user_can_add_product_to_basket(self, browser, promo_offer):
         link = f"http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer{promo_offer}"
