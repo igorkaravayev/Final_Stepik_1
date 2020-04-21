@@ -4,10 +4,6 @@ import time
 import math
 
 
-
-
-
-
 class LoginPage(BasePage):
     def should_be_login_page(self, browser):
         self.should_be_login_url(browser)
@@ -39,3 +35,5 @@ class LoginPage(BasePage):
     def logout_user(self, browser):
         logout = self.browser.find_element(*LoginPageLocators.LOGOUT_BUTTON)
         logout.click()
+
+
