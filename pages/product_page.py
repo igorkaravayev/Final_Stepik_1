@@ -35,6 +35,7 @@ class PromoOffer(BasePage):
         product_price_in_basket = self.browser.find_element(*ProductPageLocators.PRODUCT_PRICE_IN_BASKET)
         assert product_price.text == product_price_in_basket.text, "Price of the product is not the same"
 
+
 class ProductPage(BasePage):
 
     def should_not_be_success_message_after_buy(self):
